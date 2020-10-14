@@ -64,20 +64,14 @@
         </div>
         <!----taruh disini-->
         <div class="card shadow mb-4">
-            <div class="card-header py-3 text-right">
-                <div class="row">
-                    <div class="col">
+            <div class="d-sm-flex align-items-center justify-content-between card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary text-left">Daftar Artikel</h6>
-                    </div>
-                    <div class="col">
                         <button type="button" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#exampleModalLong">
                             <span class="icon text-white-50">
                                 <i class="fas fa-plus-circle"></i>
                             </span>
                             <span class="text">Tambah Artikel</span>
                         </button>
-                    </div>
-                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
