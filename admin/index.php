@@ -129,7 +129,9 @@
                         <textarea class="form-control" name="" cols="30" rows="10" placeholder="Tulis Resep"></textarea>
                     </div>
                     <div class="form-group">
-                    <div class="input-images"></div>
+                    <div class="input-images">
+                        
+                    </div>
                     </div>
 
                     </form>
