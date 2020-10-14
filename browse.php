@@ -25,10 +25,10 @@
 
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item  active">
                         <a class="nav-link" href="browse.php">Browse</a>
                     </li>
                     <li class="nav-item">
@@ -42,23 +42,8 @@
 
 
     <div class="container">
-        <div class="d-flex bd-highlight">
-            <div class="left img-masak">
-                <img src="images/undraw_cookie_love_ulvn.svg" alt="masak">
-
-            </div>
-
-            <div class="right">
-                <h1>
-                    Mau Masak Apa Hari Ini?
-                </h1>
-                <form action="">
-                    <input type="text" placeholder="cari resep disini">
-                    <button><img src="images/icon-arrow.svg" alt="arrow"></button>
-                </form>
-
-            </div>
-        </div>
+       
+      
 
     </div>
 
