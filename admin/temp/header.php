@@ -21,6 +21,18 @@
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   
+   <!--Material Design Iconic Font-->
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   <!-- Image Uploader CSS -->
+<link rel="stylesheet" href="../dist/image-uploader.min.css">
+
+<!-- Image Uploader Js -->
+<script type="text/javascript" src="../dist/image-uploader.min.js"></script>
+
+
 </head>
 
 <body id="page-top">

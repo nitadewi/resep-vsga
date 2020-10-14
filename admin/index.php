@@ -121,13 +121,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <input type="text" class="form-control"   placeholder="Nama Resep">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="" cols="30" rows="10" placeholder="Tulis Resep"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <div class="input-images"></div>
+                    </div>
 
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                    <button type="button" class="btn btn-primary">Tambah</button>
                 </div>
             </div>
         </div>
