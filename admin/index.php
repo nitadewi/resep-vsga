@@ -95,12 +95,14 @@
                                 <td>Tiger Nixon</td>
                                 <td>System Architect</td>
                                 <td>Edinburgh</td>
-                                <td>
-                                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </a>
-                                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                        <i class="fas fa-trash"></i> Hapus</a>
+                                <td width="20%">
+                                    <center>
+                                        <a href="#" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <a href="#" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                            <i class="fas fa-trash"></i> Hapus</a>
+                                    </center>
                                 </td>
                             </tr>
                         </tbody>
