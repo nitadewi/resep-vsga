@@ -101,7 +101,7 @@ session_start();
                                     <td width="2%"><?= $no++; ?></td>
                                     <td><?= $data['judul']; ?></td>
                                     <td><?= $data['isi']; ?></td>
-                                    <td><?= $data['category']; ?></td>
+                                    <td><?= $data['foto']; ?></td>
                                     <td width="20%">
                                         <center>
                                             <button type="button" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalLongtime<?= $data['id'] ?>">
@@ -176,9 +176,6 @@ session_start();
                         </div>
                         <div class="form-group">
                             <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"><?= $data['isi'] ?></textarea>
-                        </div>
-                        <div class="form-group">
-                            <div type="file" class="input-images" name="foto"></div>
                         </div>
 
                 </div>

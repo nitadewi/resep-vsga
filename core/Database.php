@@ -27,8 +27,10 @@ class Database
 
     function show()
     {
+        //SELECT nama_kolom_tampil FROM nama_tabel_pertama INNER JOIN nama_tabel_kedua 
+        //ON nama_kolom_join_tabel_pertama = nama_kolom_join_tabel_kedua
 
-        $data = mysqli_query($this->con, "SELECT * from artikel");
+        $data = mysqli_query($this->con, "SELECT * FROM artikel INNER JOIN foto ON foto_cate=foto");
         while ($d = mysqli_fetch_array($data)) {
             $hasil[] = $d;
         }
@@ -37,8 +39,9 @@ class Database
 
     function create($judul, $isi, $foto)
     {
+
         mysqli_query($this->con, "INSERT INTO foto VALUES ('','$foto')");
-        mysqli_query($this->con, "INSERT INTO artikel VALUES ('','$judul','1','$isi')");
+        mysqli_query($this->con, "INSERT INTO artikel VALUES ('','$judul','$foto','$isi')");
     }
 
     function delete($id)
