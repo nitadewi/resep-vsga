@@ -9,7 +9,10 @@ if ($action == "add") {
 
     $judul = $_POST['judul'];
     $isi   = $_POST['isi'];
-    $foto  = $_POST['foto'];
+    $foto  = $_FILES['foto']['name'];
+    $file_tmp = $_FILES['foto']['tmp_name'];
+
+    move_uploaded_file($file_tmp, '../images/' . $foto);
 
     $db->create($judul, $isi, $foto);
 

@@ -143,7 +143,8 @@ session_start();
                             <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"></textarea>
                         </div>
                         <div class="form-group">
-                            <div class="input-images"></div>
+                            <!-- <div type="file" class="input-images" name="foto"></div> -->
+                            <input class="input-images" type="file" name="foto">
                         </div>
 
                 </div>
@@ -177,7 +178,7 @@ session_start();
                             <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"><?= $data['isi'] ?></textarea>
                         </div>
                         <div class="form-group">
-                            <div class="input-images"></div>
+                            <div type="file" class="input-images" name="foto"></div>
                         </div>
 
                 </div>

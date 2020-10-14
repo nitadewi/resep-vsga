@@ -37,6 +37,7 @@ class Database
 
     function create($judul, $isi, $foto)
     {
+        mysqli_query($this->con, "INSERT INTO foto VALUES ('','$foto')");
         mysqli_query($this->con, "INSERT INTO artikel VALUES ('','$judul','1','$isi')");
     }
 
