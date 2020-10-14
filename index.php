@@ -54,7 +54,7 @@
                 </h1>
                 <form action="">
                     <input type="text" placeholder="cari resep disini">
-                    <button><img src="images/icon-arrow.svg" alt="arrow"></button>
+                    <button class="search-button"><img src="images/icon-arrow.svg" alt="arrow"></button>
                 </form>
 
             </div>
