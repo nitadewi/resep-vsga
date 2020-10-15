@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db = "resep";
+$host = "db4free.net";
+$user = "user_345";
+$pass = "project123";
+$db = "resep_345";
 $output = '';
 $id = json_encode($_POST['id']);
 $conn = mysqli_connect($host, $user, $pass, $db);

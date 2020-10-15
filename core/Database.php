@@ -2,10 +2,10 @@
 class Database
 {
 
-    var $host = "localhost";
-    var $user = "root";
-    var $pass = "";
-    var $db = "resep";
+    var $host = "db4free.net";
+    var $user = "user_345";
+    var $pass = "project123";
+    var $db = "resep_345";
 
 
     function __construct()
