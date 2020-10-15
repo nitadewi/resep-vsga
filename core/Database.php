@@ -44,8 +44,9 @@ class Database
         mysqli_query($this->con, "INSERT INTO artikel VALUES ('','$judul','$foto','$isi')");
     }
 
-    function delete($id)
+    function delete($id, $nama)
     {
+        mysqli_query($this->con, "DELETE FROM foto WHERE foto='$nama'");
         mysqli_query($this->con, "DELETE FROM artikel WHERE id='$id'");
     }
 
