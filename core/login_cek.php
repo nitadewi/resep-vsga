@@ -18,13 +18,13 @@ if ($username == $data['username']) {
     $_SESSION['nama'] = $data['nama'];
 
     if ($password == $data['password']) {
-        setcookie("message", "delete", time() - 1);
-        header('location: ../admin/index.php');
+        echo "<script> alert('Berhasil!')</script>";
+        echo "<script>  window.location='../admin/index.php'</script>";
     } else {
-        setcookie("message", "Maaf, Password salah!", time() + 3600);
-        header('location: ../login.php');
+        echo "<script> alert('Password Anda Salah!')</script>";
+        echo "<script>  window.location='../login.php'</script>";
     }
 } else {
-    setcookie("message", "Maaf, Username salah", time() + 3600);
-    header('location: ../login.php');
+    echo "<script> alert('Email Atau Password Anda Salah!')</script>";
+    echo "<script>  window.location='../login.php'</script>";
 }
