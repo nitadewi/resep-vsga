@@ -40,4 +40,6 @@ if ($action == "add") {
     $db->update($id, $judul, $isi);
     echo "<script> alert('Berhasil!')</script>";
     echo "<script>  window.location='../admin/index.php'</script>";
+} elseif ($action == "search") {
+    echo "YES!";
 }
