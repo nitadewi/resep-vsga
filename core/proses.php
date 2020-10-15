@@ -18,7 +18,7 @@ if ($action == "add") {
 
     header("location: ../admin/index.php");
 } elseif ($action == "delete") {
-    $db->delete($_GET['id']);
+    $db->delete($_GET['id'], $_GET['nama']);
 
     header("location: ../admin/index.php");
 } elseif ($action == "update") {

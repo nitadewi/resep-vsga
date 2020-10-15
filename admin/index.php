@@ -101,13 +101,13 @@ session_start();
                                     <td width="2%"><?= $no++; ?></td>
                                     <td><?= $data['judul']; ?></td>
                                     <td><?= $data['isi']; ?></td>
-                                    <td><?= $data['category']; ?></td>
+                                    <td><?= $data['foto']; ?></td>
                                     <td width="20%">
                                         <center>
                                             <button type="button" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalLongtime<?= $data['id'] ?>">
                                                 <i class="fas fa-edit"></i> Edit
                                             </button>
-                                            <a href="../core/proses.php?id=<?= $data['id'] ?>&action=delete" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                            <a href="../core/proses.php?id=<?= $data['id'] ?>&nama=<?= $data['foto'] ?>&action=delete" onclick="confirm('Yakin?')" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
                                                 <i class="fas fa-trash"></i> Hapus</a>
                                         </center>
                                     </td>
@@ -135,20 +135,6 @@ session_start();
                     </button>
                 </div>
                 <div class="modal-body">
-<<<<<<< HEAD
-                    <form action="" enctype="multipart/form-data">
-                    <div class="form-group">
-                      <input type="text" class="form-control"   placeholder="Nama Resep">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="" cols="30" rows="10" placeholder="Tulis Resep"></textarea>
-                    </div>
-                    <div class="form-group">
-                    <div class="input-images">
-                        
-                    </div>
-                    </div>
-=======
                     <form action="../core/proses.php?action=add" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" name="judul" class="form-control" placeholder="Nama Resep">
@@ -191,10 +177,6 @@ session_start();
                         <div class="form-group">
                             <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"><?= $data['isi'] ?></textarea>
                         </div>
-                        <div class="form-group">
-                            <div type="file" class="input-images" name="foto"></div>
-                        </div>
-
 
                 </div>
                 <div class="modal-footer">
