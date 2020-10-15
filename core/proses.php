@@ -15,8 +15,7 @@ if ($action == "add") {
     move_uploaded_file($file_tmp, '../images/' . $foto);
 
     $db->create($judul, $isi, $foto);
-
-    header("location: ../admin/index.php");
+    echo "<script>  window.location='../admin/index.php'</script>";
 } elseif ($action == "reg") {
 
     $nama = $_POST['nama'];
@@ -24,11 +23,12 @@ if ($action == "add") {
     $password = $_POST['password'];
 
     $db->register($nama, $username, $password);
-    header("location: ../login.php");
-} elseif ($action == "delete") {
-
-    $db->delete($_GET['id'], $_GET['nama']);
     header("location: ../admin/index.php");
+} elseif ($action == "delete") {
+    echo "<script> confirm('Yakin?')</script>";
+    $db->delete($_GET['id'], $_GET['nama']);
+    echo "<script> alert('Berhasil!')</script>";
+    echo "<script>  window.location='../admin/index.php'</script>";
 } elseif ($action == "update") {
 
     $id = $_POST['id'];
@@ -37,6 +37,5 @@ if ($action == "add") {
     $foto  = $_POST['foto'];
 
     $db->update($id, $judul, $foto, $isi);
-
-    header("location: ../admin/index.php");
+    echo "<script>  window.location='../admin/index.php'</script>";
 }
