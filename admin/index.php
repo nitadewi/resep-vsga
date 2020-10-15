@@ -203,7 +203,7 @@ session_start();
                     method: "GET",
                     dataType: "json",
                     success: function(data) {
-                        console.log(data);
+                        // console.log(data);
                         $('#judul').val(data.judul);
                         $('#isi').val(data.isi);
                     }
