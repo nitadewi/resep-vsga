@@ -16,4 +16,5 @@ $d = mysqli_fetch_array($c);
 ?>
 
 Judul: <?php echo $d['judul'];?> <hr>
-Isi:   <?php echo $d['isi'];?>
+Resep:   <?php echo $d['isi'];?> <hr>
+Gambar: <?php echo $d['foto_cate'];?>
