@@ -104,7 +104,7 @@ session_start();
                                     <td><?= $data['foto']; ?></td>
                                     <td width="20%">
                                         <center>
-                                            <button class="open-modal btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-id="<?= $data['id']; ?>" data-toggle="modal">
+                                            <button class="btn-edit btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-id="<?= $data['id']; ?>" data-toggle="modal">
                                                 <i class="fas fa-edit"></i> Edit
                                             </button>
                                             <a href="../core/proses.php?id=<?= $data['id'] ?>&nama=<?= $data['foto'] ?>&action=delete" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
@@ -160,7 +160,7 @@ session_start();
     <!--akhir modal-->
 
 
-    <div class="modal fade" id="get-data" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade modal-edit" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -189,17 +189,25 @@ session_start();
     </div>
 
     <!--akhir modal-->
-    <script type="text/javascript">
-        $(function() {
-            $(document).on('click', '.open-modal', function(e) {
-                e.preventDefault();
-                $("#get-data").modal('show');
-                $.post('../core/lihat_edit.php', {
-                        id: $(this).attr('data-id')
+    <script>
+        $(document).ready(function() {
+
+            $('.btn-edit').click(function() {
+                var id = $(this).data('id');
+                $('.modal-edit').modal('show');
+                $.ajax({
+                    url: "../core/lihat_edit.php",
+                    data: {
+                        id: id
                     },
-                    function(html) {
-                        $("#modal-body").html(html);
-                    });
+                    method: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                        $('#judul').val(data.judul);
+                        $('#isi').val(data.isi);
+                    }
+                });
             });
         });
     </script>

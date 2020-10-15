@@ -64,7 +64,9 @@ class Database
     function dataModal($id)
     {
 
-        $data = mysqli_query($this->con, "SELECT * FROM artikel where id='$id'");
+        $sql = mysqli_query($this->con, "SELECT * FROM artikel where id='$id'");
+
+        $data = mysqli_fetch_array($sql);
         return $data;
     }
 }
