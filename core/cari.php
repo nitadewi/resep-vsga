@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db = "resep";
+$user = "id14633089_user";
+$pass = 'P}$ivCt&lTTr1Ggy';
+$db = "id14633089_resep";
 $conn = mysqli_connect($host, $user, $pass, $db);
 $searchTerm = $_GET['term']; // Menerima kiriman data dari inputan pengguna
 
