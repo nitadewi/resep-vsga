@@ -20,7 +20,7 @@ $db = new Database();
         <div class="container">
             <a class="navbar-brand" href="#">Logo</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -46,62 +46,58 @@ $db = new Database();
 
 
     <div class="container">
-    
-                  
-      <div class="row">
-      <?php
-                            $no = 1;
-                            foreach ($db->show() as $data) { ?>
-          <div class="col-4">
-            <div class="card">
-                <img src="..." class="card-img-top" alt="Gambar">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $data['judul']; ?></h5>
-                    <a href='javascript:void(0)' class="btn btn-pink get_id" data-id="<?= $data['id'] ?>" data-toggle="modal" data-target="#myModal">Lihat</a>
-                    <!-- <button type="button" class="btn-pink" data-toggle="modal" data-target="#exampleModal">Lihat</button> -->
-                   
+
+
+        <div class="row">
+            <?php
+            $no = 1;
+            foreach ($db->show() as $data) { ?>
+                <div class="col-4">
+                    <div class="card">
+                        <img src="images/<?= $data['foto'] ?>" class="card-img-top" alt="Gambar">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $data['judul']; ?></h5>
+                            <button type="button" class="btn btn-pink get-data" onclick="tombolKlik()" data-id="<?= $data['id'] ?>" data-toggle="modal" data-target="#myModal">Lihat</button>
+                            <!-- <button type="button" class="btn-pink" data-toggle="modal" data-target="#exampleModal">Lihat</button> -->
+
+                        </div>
+                    </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
         </div>
-        <?php	
-                  }
-                  ?>
-      </div>
-    
-     
+
+
     </div>
 
     <!--lihat postingan-->
 
     <div id="myModal" class="modal fade" role="dialog">
-         <div class="modal-dialog">
+        <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
-               
-               <div class="modal-body" id="load_data">
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               </div>
+
+                <div class="modal-body" id="load_data">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
-         </div>
-      </div>
+        </div>
+    </div>
 
-      <script>
-        $(function() {
-          $(document.on('click','.open-modal',function(e){
-            e.preventDefault();
-            $("#get-data").modal('show');
-            $.post('lihat.php',{id:$(this).attr('data-id')},
-            function(html){
-              $(".modal-body")
-            } )
-          } ))
-          });
-          
 
-	  
-	  </script>
+    <script>
+        $('.create-comment').on('click', function(event) {
+            event.preventDefault();
+            // tangkap id modal yang ingin dimunculkan
+            var id = $(this).attr('data-modal');
+
+            // munculkan modal berdasarkan id
+            $('#comment-modal-' + id).modal();
+        });
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

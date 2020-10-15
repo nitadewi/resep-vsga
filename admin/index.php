@@ -107,7 +107,7 @@ session_start();
                                             <button type="button" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalLongtime<?= $data['id'] ?>">
                                                 <i class="fas fa-edit"></i> Edit
                                             </button>
-                                            <a href="../core/proses.php?id=<?= $data['id'] ?>&nama=<?= $data['foto'] ?>&action=delete" onclick="confirm('Yakin?')" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                            <a href="../core/proses.php?id=<?= $data['id'] ?>&nama=<?= $data['foto'] ?>&action=delete" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
                                                 <i class="fas fa-trash"></i> Hapus</a>
                                         </center>
                                     </td>
@@ -158,6 +158,7 @@ session_start();
     </div>
 
     <!--akhir modal-->
+
 
     <div class="modal fade" id="exampleModalLongtime<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
