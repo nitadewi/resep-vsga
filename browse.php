@@ -1,3 +1,7 @@
+<?php include 'core/Database.php';
+
+$db = new Database();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,42 +46,64 @@
 
 
     <div class="container">
-       
-    <div class="card">
-        <img src="..." class="card-img-top" alt="Gambar">
-        <div class="card-body">
-            <h5 class="card-title">Judul</h5>
-            <button type="button" class="btn-pink" data-toggle="modal" data-target="#exampleModal">Lihat</button>
-         </div>
-    </div>
-
+    
+                  
+      <div class="row">
+      <?php
+                            $no = 1;
+                            foreach ($db->show() as $data) { ?>
+          <div class="col-4">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="Gambar">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $data['judul']; ?></h5>
+                    <a href='javascript:void(0)' class="btn btn-pink get_id" data-id="<?= $data['id'] ?>" data-toggle="modal" data-target="#myModal">Lihat</a>
+                    <!-- <button type="button" class="btn-pink" data-toggle="modal" data-target="#exampleModal">Lihat</button> -->
+                   
+                </div>
+            </div>
+        </div>
+        <?php	
+                  }
+                  ?>
+      </div>
+    
+     
     </div>
 
     <!--lihat postingan-->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Judul</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div id="myModal" class="modal fade" role="dialog">
+         <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               
+               <div class="modal-body" id="load_data">
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn-pink">close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+      <script>
+        $(function() {
+          $(document.on('click','.open-modal',function(e){
+            e.preventDefault();
+            $("#get-data").modal('show');
+            $.post('lihat.php',{id:$(this).attr('data-id')},
+            function(html){
+              $(".modal-body")
+            } )
+          } ))
+          });
+          
+
+	  
+	  </script>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 </body>

@@ -1,4 +1,12 @@
-<?php include 'temp/header.php'; ?>
+<?php
+
+include 'temp/header.php';
+include '../core/Database.php';
+
+$db = new Database();
+session_start();
+
+?>
 <!-- Main Content -->
 <div id="content">
 
@@ -37,7 +45,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama']; ?> </span>
                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                 </a>
                 <!-- Dropdown - User Information -->
@@ -65,19 +73,20 @@
         <!----taruh disini-->
         <div class="card shadow mb-4">
             <div class="d-sm-flex align-items-center justify-content-between card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary text-left">Daftar Artikel</h6>
-                        <button type="button" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#exampleModalLong">
-                            <span class="icon text-white-50">
-                                <i class="fas fa-plus-circle"></i>
-                            </span>
-                            <span class="text">Tambah Artikel</span>
-                        </button>
+                <h6 class="m-0 font-weight-bold text-primary text-left">Daftar Artikel</h6>
+                <button type="button" class="btn btn-info btn-icon-split btn-sm" data-toggle="modal" data-target="#exampleModalLong">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-plus-circle"></i>
+                    </span>
+                    <span class="text">Tambah Artikel</span>
+                </button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Title</th>
                                 <th>Deskripsi</th>
                                 <th>Gambar</th>
@@ -85,20 +94,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td width="20%">
-                                    <center>
-                                        <a href="#" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
-                                        <a href="#" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                                            <i class="fas fa-trash"></i> Hapus</a>
-                                    </center>
-                                </td>
-                            </tr>
+                            <?php
+                            $no = 1;
+                            foreach ($db->show() as $data) { ?>
+                                <tr>
+                                    <td width="2%"><?= $no++; ?></td>
+                                    <td><?= $data['judul']; ?></td>
+                                    <td><?= $data['isi']; ?></td>
+                                    <td><?= $data['category']; ?></td>
+                                    <td width="20%">
+                                        <center>
+                                            <button type="button" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalLongtime<?= $data['id'] ?>">
+                                                <i class="fas fa-edit"></i> Edit
+                                            </button>
+                                            <a href="../core/proses.php?id=<?= $data['id'] ?>&action=delete" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                                                <i class="fas fa-trash"></i> Hapus</a>
+                                        </center>
+                                    </td>
+                                <?php } ?>
+                                </tr>
                         </tbody>
                     </table>
                 </div>
@@ -121,6 +135,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+<<<<<<< HEAD
                     <form action="" enctype="multipart/form-data">
                     <div class="form-group">
                       <input type="text" class="form-control"   placeholder="Nama Resep">
@@ -133,13 +148,60 @@
                         
                     </div>
                     </div>
+=======
+                    <form action="../core/proses.php?action=add" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" name="judul" class="form-control" placeholder="Nama Resep">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <!-- <div type="file" class="input-images" name="foto"></div> -->
+                            <input class="input-images" type="file" name="foto">
+                        </div>
 
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
-                    <button type="button" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--akhir modal-->
+
+    <div class="modal fade" id="exampleModalLongtime<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Ubah Artikel</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="../core/proses.php?action=update" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                            <input type="text" name="judul" value="<?= $data['judul'] ?>" class="form-control" placeholder="Nama Resep">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"><?= $data['isi'] ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div type="file" class="input-images" name="foto"></div>
+                        </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
+                </div>
+                </form>
             </div>
         </div>
     </div>
