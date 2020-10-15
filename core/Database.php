@@ -15,11 +15,11 @@ class Database
         return $con;
     }
 
-    function user()
+    function user($username, $password)
     {
         $data = mysqli_query(
             $this->con,
-            "SELECT * FROM user"
+            "SELECT * FROM user WHERE username='$username' and password='$password'"
         );
 
         return $data;
@@ -35,6 +35,12 @@ class Database
             $hasil[] = $d;
         }
         return $hasil;
+    }
+
+    function register($nama, $username, $password)
+    {
+
+        mysqli_query($this->con, "INSERT INTO user VALUES ('','$nama','$username','$password')");
     }
 
     function create($judul, $isi, $foto)

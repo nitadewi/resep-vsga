@@ -7,9 +7,9 @@ $db = new Database();
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$auth = $db->user();
+$auth = $db->user($username, $password);
 
-$data = mysqli_fetch_assoc($auth);
+$data = mysqli_fetch_array($auth);
 
 
 if ($username == $data['username']) {

@@ -17,6 +17,14 @@ if ($action == "add") {
     $db->create($judul, $isi, $foto);
 
     header("location: ../admin/index.php");
+} elseif ($action == "reg") {
+
+    $nama = $_POST['nama'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $db->register($nama, $username, $password);
+    header("location: ../login.php");
 } elseif ($action == "delete") {
 
     $db->delete($_GET['id'], $_GET['nama']);
