@@ -71,7 +71,7 @@
                 <h1>
                     Mau Masak Apa Hari Ini?
                 </h1>
-                <form action="">
+                <form action="proses.php?action=search">
                     <input id="cari" name="cari" type="text" placeholder="cari resep disini">
                     <button class="search-button"><img src="images/icon-arrow.svg" alt="arrow"></button>
                 </form>
