@@ -19,10 +19,7 @@ if ($action == "add") {
     header("location: ../admin/index.php");
 } elseif ($action == "delete") {
 
-    echo "<script> confirm('Yakin? ingin menghapus?')</script>";
-
     $db->delete($_GET['id'], $_GET['nama']);
-
     header("location: ../admin/index.php");
 } elseif ($action == "update") {
 
