@@ -96,7 +96,7 @@ session_start();
                         <tbody>
                             <?php
                             $no = 1;
-                            foreach ($db->show() as $data) { ?>
+                            foreach ($db->show('') as $data) { ?>
                                 <tr>
                                     <td width="2%"><?= $no++; ?></td>
                                     <td><?= $data['judul']; ?></td>

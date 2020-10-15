@@ -25,12 +25,12 @@ class Database
         return $data;
     }
 
-    function show()
+    function show($cari)
     {
         //SELECT nama_kolom_tampil FROM nama_tabel_pertama INNER JOIN nama_tabel_kedua 
         //ON nama_kolom_join_tabel_pertama = nama_kolom_join_tabel_kedua
 
-        $data = mysqli_query($this->con, "SELECT * FROM artikel INNER JOIN foto ON foto_cate=foto");
+        $data = mysqli_query($this->con, "SELECT * FROM artikel INNER JOIN foto ON foto_cate=foto WHERE judul LIKE '%$cari%'");
         while ($d = mysqli_fetch_array($data)) {
             $hasil[] = $d;
         }

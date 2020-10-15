@@ -75,7 +75,9 @@ $db = new Database();
         <div class="row">
             <?php
             $no = 1;
-            foreach ($db->show() as $data) { ?>
+
+            $cari = isset($_POST['cari']) ? $_POST['cari'] : '';
+            foreach ($db->show($cari) as $data) { ?>
                 <div class="col-4">
                     <div class="card">
                         <img src="images/<?= $data['foto'] ?>" class="card-img-top" alt="Gambar">

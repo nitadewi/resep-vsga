@@ -68,9 +68,9 @@
                 <h1>
                     Mau Masak Apa Hari Ini?
                 </h1>
-                <form action="proses.php?action=search">
+                <form action="browse.php" method="POST">
                     <input id="cari" name="cari" type="text" placeholder="cari resep disini">
-                    <button class="search-button"><img src="images/icon-arrow.svg" alt="arrow"></button>
+                    <input type="submit" name="submit" class="search-button"><img src="images/icon-arrow.svg" alt="arrow"></input>
                 </form>
 
             </div>
