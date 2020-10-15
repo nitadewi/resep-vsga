@@ -104,7 +104,7 @@ session_start();
                                     <td><?= $data['foto']; ?></td>
                                     <td width="20%">
                                         <center>
-                                            <button type="button" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModalLongtime<?= $data['id'] ?>">
+                                            <button class="open-modal btn-sm d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-id="<?= $data['id']; ?>" data-toggle="modal">
                                                 <i class="fas fa-edit"></i> Edit
                                             </button>
                                             <a href="../core/proses.php?id=<?= $data['id'] ?>&nama=<?= $data['foto'] ?>&action=delete" class="btn-sm d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
@@ -160,7 +160,7 @@ session_start();
     <!--akhir modal-->
 
 
-    <div class="modal fade" id="exampleModalLongtime<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="get-data" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -172,13 +172,12 @@ session_start();
                 <div class="modal-body">
                     <form action="../core/proses.php?action=update" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
-                            <input type="text" name="judul" value="<?= $data['judul'] ?>" class="form-control" placeholder="Nama Resep">
+                            <input type="hidden" name="id" value="">
+                            <input type="text" id="judul" name="judul" value="" class="form-control" placeholder="Nama Resep">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"><?= $data['isi'] ?></textarea>
+                            <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep" id="isi"></textarea>
                         </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">close</button>
@@ -190,4 +189,18 @@ session_start();
     </div>
 
     <!--akhir modal-->
+    <script type="text/javascript">
+        $(function() {
+            $(document).on('click', '.open-modal', function(e) {
+                e.preventDefault();
+                $("#get-data").modal('show');
+                $.post('../core/lihat_edit.php', {
+                        id: $(this).attr('data-id')
+                    },
+                    function(html) {
+                        $("#modal-body").html(html);
+                    });
+            });
+        });
+    </script>
     <?php include 'temp/footer.php'; ?>

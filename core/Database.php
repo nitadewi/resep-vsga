@@ -60,4 +60,11 @@ class Database
     {
         mysqli_query($this->con, "UPDATE artikel SET judul='$judul',isi='$isi' where id='$id'");
     }
+
+    function dataModal($id)
+    {
+
+        $data = mysqli_query($this->con, "SELECT * FROM artikel where id='$id'");
+        return $data;
+    }
 }
