@@ -135,6 +135,20 @@ session_start();
                     </button>
                 </div>
                 <div class="modal-body">
+<<<<<<< HEAD
+                    <form action="" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <input type="text" class="form-control"   placeholder="Nama Resep">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="" cols="30" rows="10" placeholder="Tulis Resep"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <div class="input-images">
+                        
+                    </div>
+                    </div>
+=======
                     <form action="../core/proses.php?action=add" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="text" name="judul" class="form-control" placeholder="Nama Resep">
@@ -177,6 +191,7 @@ session_start();
                         <div class="form-group">
                             <textarea class="form-control" name="isi" cols="30" rows="10" placeholder="Tulis Resep"><?= $data['isi'] ?></textarea>
                         </div>
+
 
                 </div>
                 <div class="modal-footer">

@@ -26,11 +26,11 @@
    
    <!--Material Design Iconic Font-->
    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
    <!-- Image Uploader CSS -->
 <link rel="stylesheet" href="../dist/image-uploader.min.css">
 
-<!-- Image Uploader Js -->
-<script type="text/javascript" src="../dist/image-uploader.min.js"></script>
+
 
 
 </head>
