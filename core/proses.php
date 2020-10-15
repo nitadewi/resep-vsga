@@ -36,9 +36,8 @@ if ($action == "add") {
     $id = $_POST['id'];
     $judul = $_POST['judul'];
     $isi   = $_POST['isi'];
-    $foto  = $_POST['foto'];
 
-    $db->update($id, $judul, $foto, $isi);
+    $db->update($id, $judul, $isi);
     echo "<script> alert('Berhasil!')</script>";
     echo "<script>  window.location='../admin/index.php'</script>";
 }

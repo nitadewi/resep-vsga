@@ -56,8 +56,8 @@ class Database
         mysqli_query($this->con, "DELETE FROM artikel WHERE id='$id'");
     }
 
-    function update($id, $judul, $foto, $isi)
+    function update($id, $judul, $isi)
     {
-        mysqli_query($this->con, "UPDATE artikel SET judul='$judul',category='',isi='$isi' where id='$id'");
+        mysqli_query($this->con, "UPDATE artikel SET judul='$judul',isi='$isi' where id='$id'");
     }
 }

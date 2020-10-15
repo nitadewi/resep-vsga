@@ -8,12 +8,6 @@ include 'layoutRes/header.php';
   <div class="p-5" style="width:100%">
     <div class="text-center">
       <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-      <?php
-
-      if (isset($_COOKIE["message"])) {
-        echo $_COOKIE["message"];
-      }
-      ?>
 
     </div>
     <form class="user" method="POST" action="core/login_cek.php">
