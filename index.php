@@ -70,7 +70,7 @@
                 </h1>
                 <form action="browse.php" method="POST">
                     <input id="cari" name="cari" type="text" placeholder="cari resep disini">
-                    <input type="submit" name="submit" class="search-button"><img src="images/icon-arrow.svg" alt="arrow"></input>
+                    <button type="submit" name="submit" class="search-button"><img src="images/icon-arrow.svg" alt="arrow"></button>
                 </form>
 
             </div>
